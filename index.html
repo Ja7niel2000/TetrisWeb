@@ -1,20 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="styles.css" rel="stylesheet">
+    <link href="/css/global.css" rel="stylesheet">
+    <link href="/css/nav.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/anim.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10+Charted&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris</title>
+    <script src="https://kit.fontawesome.com/1b5bd71c65.js" crossorigin="anonymous"></script>
 </head>
-<body >
-    <h1>Tettris Web</h1>
-    <canvas id="canvas" height="600" width="300">
+
+<body>
+    <i class="fa-solid fa-bars mobile menu"></i>
+    <nav>
+        <div id="navHeader">
+            <i class="fa-solid fa-arrow-left mobile"></i>
+            <h1>Tetris</h1>
+            <div id="menuButton"></div>
+        </div>
+       
+        <input id="button1" class="articleButtons" type="checkbox" checked="true">
+        <label id="labelDescription" class="labels" for="button1"><h2>Description</h2></label>
+        <article id="description">
+            <img id="originalTetrisMenu" class="articleImg" src="assets/Tetris1989.jpg" alt="Original tetris menu">
+            <h3>What is tetris?</h3>
+            <p>Tetris is a tile-matching puzzle video game originally designed and programmed by Russian software engineer Alexey Pajitnov in 1984. It has since become one of the most popular and enduring video games of all time, appearing on nearly every gaming platform available. The rules of Tetris are simple yet its gameplay can be deeply strategic, challenging, and addictive.</p>
+            
+            <h3>Gameplay</h3>
+            <p>The main objective of Tetris is to score as many points as possible by clearing horizontal lines of Blocks. The player does this by manipulating pieces, each made up of four squares, known as Tetriminos, which descend from the top of the playing field.</p>
+            
+            <h3>This is just a project</h3>
+            <p>I made this project for the propose of demostrating my skills at web delevopment</p>
+            
+        </article>
         
-    </canvas>
-    <button>Start</button>
+        <input id="button2" class="articleButtons" type="checkbox" checked>
+        <label id="howToPlayLabel" class="labels" for="button2"><h2>Controls</h2></label>
+        <article id="howToPlay">
+            <p>Players move the descending Tetriminos left or right, rotate them 90 degrees clockwise or counter-clockwise, and accelerate their descent to the bottom of the playfield. Some versions also allow a "hard drop" which instantly places the Tetrimino at the bottom of the playfield.</p>
+            <h3>Keyboard</h3>
+            <h3>Tactil</h3>
+            <h3>Dualshock 4</h3>
+            <img class="articleImg" src="assets/dualshock4.jpg" alt="dualshock 4">
+        </article>
+        
+
+        
+
+        <article id="info"></article>
+        <article id="history"></article>
+        <section></section>
     
+    </nav>
+    
+
+    <main>
+        <div id="mainContainer">
+            <canvas id="canvas" height="600" width="300">
+            </canvas>
+            <div id="touch-control">
+                <button id="<-" class="control-button"><i class="fa-solid fa-arrow-left"></i></button>
+                <div id="status">
+                    <button id="start"><i class="fa-solid fa-play"></i></button>
+                    <p id="scoreParaph">score</p>
+                    <span id="score">0</span>
+
+                </div>
+                <button id="->"class="control-button"><i class="fa-solid fa-arrow-right"></i></button>
+
+                <button id="bottom" class="control-button"><i class="fa-solid fa-arrow-down-long"></i></button>
+                <button id="down" class="control-button"><i class="fa-solid fa-arrow-down"></i></button>
+
+
+                <button id="rotate" class="control-button"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+        </div>
+    </main>
+
+    </div>
+
+      
 </body>
-<script src="fun/main.js"></script>
-<script src="fun/tetrimios.js"></script>
-<script src="fun/canvas.js"></script>
+
+<script src="fun/globalVars.js"></script>
+<script src="fun/tetrominosShapes.js"></script>
+<script src="fun/tetrominosSetup.js"></script>
+<script src="fun/gameSetup.js"></script>
+<script src="fun/windowSettings.js"></script>
 </html>

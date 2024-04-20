@@ -1,0 +1,26 @@
+:root{
+    --mode-color:#000000;
+    --main-color:#00abff;
+    --second-color:#0087ffb2;
+    --second-color-hover:#00c3ffb2;
+    --tird-color: #ffffff;
+
+    --bg-primary-color:#202020;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size:1vw;
+    line-height: 1.7rem;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    background: var(--bg-primary-color);
+    display: flex;
+    height: 100vh;
+    margin: 0;
+
+}
