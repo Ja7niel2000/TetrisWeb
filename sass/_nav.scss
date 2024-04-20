@@ -99,7 +99,7 @@ article{
     display: none;
 }
 
-.menu{
+.menuButton{
     position: fixed;
     z-index: 0;
     font-size: 20px;
@@ -116,7 +116,7 @@ article{
     }
 
     .mobile{
-        display: block;
+        display: block !important;
     }
 
     #navHeader{

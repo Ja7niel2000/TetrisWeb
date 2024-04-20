@@ -1,4 +1,13 @@
+let navBar = document.getElementById("navBar");
 
+
+document.querySelector(".menuButton").addEventListener("click",(e)=>{
+    navBar.classList.add("menuMoveVisible");
+});
+
+document.querySelector(".backButton").addEventListener("click",(e)=>{
+    navBar.classList.remove("menuMoveVisible");
+});
 
 window.addEventListener("resize",lol);
 function lol(){

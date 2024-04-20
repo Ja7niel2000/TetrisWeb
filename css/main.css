@@ -114,7 +114,7 @@ article {
   display: none;
 }
 
-.menu {
+.menuButton {
   position: fixed;
   z-index: 0;
   font-size: 20px;
@@ -130,7 +130,7 @@ article {
     transform: translateX(-100%);
   }
   .mobile {
-    display: block;
+    display: block !important;
   }
   #navHeader {
     justify-content: space-between;
