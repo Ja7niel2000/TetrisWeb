@@ -1,0 +1,95 @@
+main{
+    display: flex;
+    justify-content: center;
+    height: inherit;
+    width: 100%;
+
+}
+
+#mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#canvas-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#canvas-header p{
+    margin:0;
+}
+
+#canvas{
+    height: 600;
+    width: 300;
+    border:solid 3px #c3c3c3 ;
+    background: #c3c3c3;
+    -webkit-box-shadow: 10px -7px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px -7px 18px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px -7px 18px 0px rgba(0,0,0,0.75);
+    z-index: 10;
+}
+
+#touch-control {
+    background: #c3c3c3;
+    padding: 5px;
+    border-radius: 10px;
+    display: grid;
+    align-items: end;
+    height: 20vh ;
+    min-height: 124px;
+    width: 100%;
+    margin-top:5px;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+    z-index: 100;
+
+}
+
+.control-button{
+    color:var(--main-color) !important;
+    display: inline-block;
+    width: 98%;
+    height: 100%;
+    padding: 0;
+    max-height: 100px;
+    height: 100%;
+}
+
+.arrows-buttons{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#start{
+    display: block;
+    text-align: center;
+    width: 30px;
+    color: #00abff;
+    border:solid 1px #c3c3c3;
+    border-radius: 5px;
+}
+
+#status{ 
+    
+    border: 1px solid #8f8f9d; /*rgb(0, 179, 255)*/
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1px;
+    max-height: 100px;
+    height: 100%;
+
+}
+
+#scoreParaph{
+    margin: 5px 0;
+}
+

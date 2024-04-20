@@ -1,0 +1,17 @@
+@keyframes rainbowborder{
+    
+    0%{border-color:rgb(0, 179, 255) ;}
+    25%{border-color:rgb(0, 0, 255) ;}
+    50%{border-color:rgb(0, 255, 0) ;}
+    75%{border-color:rgb(255, 0, 0) ;}
+    100%{border-color:rgb(0, 179, 255) ;}
+
+}
+
+.animRgbBorder{
+    animation-name: rainbowborder;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+
+}
+
