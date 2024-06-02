@@ -21,7 +21,7 @@
             <div></div>
         </div>
        
-        <input id="button1" class="articleButtons" type="checkbox" checked="true">
+        <input id="button1" class="articleButtons" type="checkbox" checked>
         <label id="labelDescription" class="labels" for="button1"><h2>Description</h2></label>
         <article id="description">
             <img id="originalTetrisMenu" class="articleImg" src="assets/Tetris1989.jpg" alt="Original tetris menu">
@@ -57,22 +57,22 @@
         <div id="mainContainer">
             <canvas id="canvas" height="600" width="300">
             </canvas>
+            <div id="status">
+                <button id="start" class="buttons"><i class="fa-solid fa-play"></i></button>
+                <p id="scoreParaph">score <span id="score">0</span></p>
+            </div>
+
             <div id="touch-control">
-                <button id="<-" class="control-button"><i class="fa-solid fa-arrow-left"></i></button>
-                <div id="status">
-                    <button id="start"><i class="fa-solid fa-play"></i></button>
-                    <p id="scoreParaph">score</p>
-                    <span id="score">0</span>
 
-                </div>
-                <button id="->"class="control-button"><i class="fa-solid fa-arrow-right"></i></button>
-
-                <button id="bottom" class="control-button"><i class="fa-solid fa-arrow-down-long"></i></button>
-                <button id="down" class="control-button"><i class="fa-solid fa-arrow-down"></i></button>
-
-
-                <button id="rotate" class="control-button"><i class="fa-solid fa-arrow-rotate-right"></i></button>
-        </div>
+                <button id="<-" class="control-button buttons"><i class="fa-solid fa-arrow-left"></i></button>
+                <button id="down" class="control-button buttons"><i class="fa-solid fa-angle-down"></i></button>
+                <button id="->"class="control-button buttons"><i class="fa-solid fa-arrow-right"></i></button>
+                
+                <button id="rotate" class="control-button buttons"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                <button id="bottom" class="control-button buttons"><i class="fa-solid fa-angles-down"></i></button>
+                <button id="rotate" class="control-button buttons"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+        
+            </div>
     </main>
 
     </div>

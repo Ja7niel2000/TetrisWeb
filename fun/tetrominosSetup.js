@@ -34,7 +34,7 @@ Piece.prototype.drawTetromino=function(){
         for(c=0;c<this.activeTetromino.length;c++){
             if(this.activeTetromino[r][c])
                 drawTile(this.x+c,this.y+r,this.color);
-            ctx.strokeRect((this.x+c)*tile,(this.y+r)*tile,tile,tile);
+
         }
    
 
@@ -171,11 +171,36 @@ function controls(event){
 
 document.addEventListener("keydown",controls);
 
+let downButton=document.getElementById("down");
+let rigthButton=document.getElementById("->");
+let leftButton=document.getElementById("<-")
+let rotateButton=document.getElementById("rotate");
+let bottomButton=document.getElementById("bottom");
 
-document.getElementById("down").addEventListener("click",function(e){e.preventDefault();mainTetro.moveDown()});
-document.getElementById("->").addEventListener("click",function(e){e.preventDefault();mainTetro.moveRigth()});
-document.getElementById("<-").addEventListener("click",function(e){e.preventDefault();mainTetro.moveLeft()});
-document.getElementById("rotate").addEventListener("click",function(e){e.preventDefault();mainTetro.rotate()});
-document.getElementById("bottom").addEventListener("click",function(e){e.preventDefault();mainTetro.moveBottom()});
+
+
+const setControls = ()=>{
+
+    downButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveDown()});
+    rigthButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveRigth()});
+    leftButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveLeft()});
+    rotateButton.addEventListener("click",function(e){e.preventDefault();mainTetro.rotate()});
+    bottomButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveBottom()});
+
+
+}
+
+const removeControls =()=>{
+    downButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveDown()});
+    rigthButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveRigth()});
+    leftButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveLeft()});
+    rotateButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.rotate()});
+    bottomButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveBottom()});
+
+}
+
+
+
+
 
 

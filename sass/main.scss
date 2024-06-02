@@ -1,12 +1,16 @@
 :root {
 
     --mode-color:#000000;
+    --inverse-mode-color:#ffffff;
+
     --main-color:#00abff;
     --second-color:#0087ffb2;
     --second-color-hover:#00c3ffb2;
+
     --tird-color: #ffffff;
 
     --bg-primary-color:#202020;
+    --bg-secondary-color:#2f2f2f;
 }
 
 html{
@@ -17,7 +21,7 @@ html{
 body{
     font-size:1vw;
     line-height: 1.7rem;
-    color: rgb(0, 0, 0);
+    color: var(--inverse-mode-color);
     box-sizing: border-box;
     background: var(--bg-primary-color);
     display: flex;

@@ -107,7 +107,14 @@ article{
     top: 20px;
     color: var(--main-color);
 }
+
 @media(max-width:600px){
+    body{
+     line-height: 1rem;
+     font-size: 2vw;
+
+    }
+
     nav{
         position: fixed;
         transition: 1s;

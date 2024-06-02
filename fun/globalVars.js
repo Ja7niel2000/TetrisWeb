@@ -2,13 +2,15 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let HIGHT = 600;
 let WIDTH = HIGHT/2;
-let tile = 30;
+let tile = HIGHT/20;
 
 
 let matrixX=WIDTH/tile;
 let matrixY= HIGHT/tile;
 let isAFilledRow
 let gameSpeed = 1000; //ms
+
+/**function to create the main matrix board*/
 const initBoard=()=>{
     let setMatrix=[];
     for(i=0;i<matrixY;i++){
@@ -17,7 +19,10 @@ const initBoard=()=>{
     }
     return setMatrix
 }
+
+/** Inits the main matrix*/
 let matrix = initBoard();
+
 let mainTetro = null;
 let interval = null;
 let rowsDeleted=0;

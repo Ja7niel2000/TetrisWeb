@@ -1,10 +1,12 @@
 :root {
   --mode-color:#000000;
+  --inverse-mode-color:#ffffff;
   --main-color:#00abff;
   --second-color:#0087ffb2;
   --second-color-hover:#00c3ffb2;
   --tird-color: #ffffff;
   --bg-primary-color:#202020;
+  --bg-secondary-color:#2f2f2f;
 }
 
 html {
@@ -15,7 +17,7 @@ html {
 body {
   font-size: 1vw;
   line-height: 1.7rem;
-  color: rgb(0, 0, 0);
+  color: var(--inverse-mode-color);
   box-sizing: border-box;
   background: var(--bg-primary-color);
   display: flex;
@@ -124,6 +126,10 @@ article {
 }
 
 @media (max-width: 600px) {
+  body {
+    line-height: 1rem;
+    font-size: 2vw;
+  }
   nav {
     position: fixed;
     transition: 1s;
@@ -163,14 +169,15 @@ main {
 #canvas {
   height: 600;
   width: 300;
-  border: solid 3px #c3c3c3;
-  background: #c3c3c3;
+  border: solid 3px #2f2f2f;
+  background: #2f2f2f;
   box-shadow: 10px -7px 18px 0px rgba(0, 0, 0, 0.75);
   z-index: 10;
 }
 
 #touch-control {
-  background: #c3c3c3;
+  background: #2f2f2f;
+  color: var(--main-color);
   padding: 5px;
   border-radius: 10px;
   display: grid;
@@ -185,13 +192,18 @@ main {
 }
 
 .control-button {
-  color: var(--main-color) !important;
+  color: var(--inverse-mode-color) !important;
   display: inline-block;
+  background: var(--mode-color);
   width: 98%;
-  height: 100%;
+  height: 98%;
   padding: 0;
   max-height: 100px;
-  height: 100%;
+  border-radius: 100%;
+}
+
+.control-button:active {
+  border-color: var(--main-color);
 }
 
 .arrows-buttons {
@@ -199,28 +211,45 @@ main {
   justify-content: space-between;
 }
 
+#status {
+  border: none;
+  background: var(--bg-secondary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 2px 0px 0px 0px;
+  padding: 0cap;
+  height: 35px;
+}
+
 #start {
   display: block;
   text-align: center;
+  margin: 0px 10px;
   width: 30px;
-  color: #00abff;
-  border: solid 1px #c3c3c3;
-  border-radius: 5px;
+  height: 30px;
 }
 
-#status {
-  border: 1px solid #8f8f9d; /*rgb(0, 179, 255)*/
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1px;
-  max-height: 100px;
-  height: 100%;
+.buttons:active {
+  background-color: none;
 }
 
-#scoreParaph {
+.buttons:active, .buttons:hover {
+  color: var(--main-color) !important;
+}
+
+.buttons {
+  color: var(--inverse-mode-color);
+  background: var(--mode-color);
+  border: none;
+  border-radius: 100%;
+}
+
+#scoreParaph span {
   margin: 5px 0;
+  color: var(--main-color);
 }
 
 @keyframes rainbowborder {

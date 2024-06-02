@@ -5,7 +5,6 @@ const update = () =>{
     mainTetro.drawTetromino();
     mainTetro.moveDown();
 
-
 }
 
 const restartBoard =()=>{
@@ -38,8 +37,9 @@ const dropRow = (y) =>{
 
 const setColor=(color)=>{
     switch (color){
+        
         case 0:
-            return "rgb(195,195,195)"; //white
+            return "rgb(47,47,47)"; //white
 
         case 1:
             return "rgb(138,235,235)"; //light blue
@@ -70,8 +70,6 @@ const drawTile =(x,y,color)=>{
     ctx.fillStyle=stringColor;
     ctx.fillRect(x*tile,y*tile,tile,tile);
 
-    ctx.strokeStyle="rgb(195,195,195)";
-    ctx.strokeRect(x*tile,y*tile,tile,tile);
 }
 
 const setScore=(rowsDeleted)=>{
@@ -80,13 +78,12 @@ const setScore=(rowsDeleted)=>{
         document.getElementById("score").innerHTML="";
         document.getElementById("score").innerHTML=`<b>${score}</b>`;
 
-
-
     }
 }
 
 const gameOver =()=>{
     clearInterval(interval);
+    removeControls();
     interval = null;
     canvas.classList.remove("animRgbBorder")
     
@@ -94,24 +91,12 @@ const gameOver =()=>{
     ctx.textAlign="center";
     ctx.fillStyle="#000";
     ctx.fillText("Game over",WIDTH/2,HIGHT *0.2);
-
-
-    console.log("juego terminad0");
-
 }
-
-const test =()=>{
-    ctx.font="40px serif";
-    ctx.textAlign="center";
-    ctx.fillStyle="#fff";
-    ctx.fillText("Game over",WIDTH/2,HIGHT *0.2);
-
-}
-
 
 const startGame=()=>{
     restartBoard();
     canvas.classList.add("animRgbBorder");
+    setControls();
     interval = setInterval(update,gameSpeed);
 }
 
