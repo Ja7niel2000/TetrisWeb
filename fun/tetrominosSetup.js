@@ -61,13 +61,25 @@ Piece.prototype.moveBottom=function(y){
     }
 }
 
-Piece.prototype.rotate=function(){
+Piece.prototype.rotateRight=function(){
     if(this.canMove(0,0,this.tetromino[(this.tetrominoR +1)%this.tetromino.length])){
         this.unDraw();
         this.tetrominoR=(this.tetrominoR +1)%this.tetromino.length;
         this.activeTetromino=this.tetromino[this.tetrominoR];
         this.drawTetromino();
     }
+}
+
+Piece.prototype.rotateLeft=function(){
+
+    if(this.canMove(0,0,this.tetromino[(this.tetrominoR +(this.tetromino.length-1))%this.tetromino.length])){
+        console.log((this.tetrominoR -1)%this.tetromino.length);
+        this.unDraw();
+        this.tetrominoR=(this.tetrominoR +(this.tetromino.length-1))%this.tetromino.length;
+        this.activeTetromino=this.tetromino[this.tetrominoR];
+        this.drawTetromino();
+    }
+
 }
 
 Piece.prototype.moveDown=function(){
@@ -154,7 +166,7 @@ function controls(event){
                 break;
             case 38:
                 event.preventDefault();
-                mainTetro.rotate()
+                mainTetro.rotateRight()
                 break;
             case 39:
                 event.preventDefault();
@@ -174,7 +186,8 @@ document.addEventListener("keydown",controls);
 let downButton=document.getElementById("down");
 let rigthButton=document.getElementById("->");
 let leftButton=document.getElementById("<-")
-let rotateButton=document.getElementById("rotate");
+let rotateRightButton=document.getElementById("rotateRight");
+let rotateLeftButton=document.getElementById("rotateLeft");
 let bottomButton=document.getElementById("bottom");
 
 
@@ -184,17 +197,22 @@ const setControls = ()=>{
     downButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveDown()});
     rigthButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveRigth()});
     leftButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveLeft()});
-    rotateButton.addEventListener("click",function(e){e.preventDefault();mainTetro.rotate()});
+    rotateRightButton.addEventListener("click",function(e){e.preventDefault();mainTetro.rotateRight()});
+    rotateLeftButton.addEventListener("click",function(e){e.preventDefault();mainTetro.rotateLeft()});
+
     bottomButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveBottom()});
 
 
 }
 
 const removeControls =()=>{
+
     downButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveDown()});
     rigthButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveRigth()});
     leftButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveLeft()});
-    rotateButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.rotate()});
+    rotateRightButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.rotateRight()});
+    rotateLeftButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.rotateLeft()});
+
     bottomButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveBottom()});
 
 }
