@@ -7,7 +7,7 @@ let tile = HIGHT/20;
 
 let matrixX=WIDTH/tile;
 let matrixY= HIGHT/tile;
-let isAFilledRow
+let isAFilledRow;
 let gameSpeed = 1000; //ms
 
 /**function to create the main matrix board*/

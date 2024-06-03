@@ -1,7 +1,9 @@
+let startButton = document.getElementById("start");
+
 const update = () =>{
+    restartMainTetromino();
     ctx.clearRect(0,0,1000,1000);
     drawBoard();
-    restartMainTetromino();
     mainTetro.drawTetromino();
     mainTetro.moveDown();
 
@@ -68,10 +70,12 @@ const setColor=(color)=>{
 const drawTile =(x,y,color)=>{
     let stringColor = setColor(color);
     ctx.fillStyle=stringColor;
-    ctx.fillRect(x*tile,y*tile,tile,tile);
+    ctx.fillRect(x*tile, y*tile,tile,tile);
+    ctx.strokeRect(x*tile,y*tile,tile,tile);
 
 }
 
+/** */
 const setScore=(rowsDeleted)=>{
     if(rowsDeleted!=0){
         score+=Math.pow(2,rowsDeleted-1);
@@ -83,7 +87,6 @@ const setScore=(rowsDeleted)=>{
 
 const gameOver =()=>{
     clearInterval(interval);
-    removeControls();
     interval = null;
     canvas.classList.remove("animRgbBorder")
     
@@ -91,16 +94,28 @@ const gameOver =()=>{
     ctx.textAlign="center";
     ctx.fillStyle="#000";
     ctx.fillText("Game over",WIDTH/2,HIGHT *0.2);
+    startButton.addEventListener("click",restartGame);
+
+
+}
+
+const restartGame=()=>{
+    startButton.removeEventListener("click",restartGame);
+    startButton.removeEventListener("click",startGame);
+
+    restartBoard();
+    interval = setInterval(update,gameSpeed);
+    canvas.classList.add("animRgbBorder");
+
 }
 
 const startGame=()=>{
-    restartBoard();
-    canvas.classList.add("animRgbBorder");
+    startButton.removeEventListener("click",startGame);
     setControls();
-    interval = setInterval(update,gameSpeed);
-}
+    restartGame();
 
-document.getElementById("start").addEventListener("click",startGame);
+}
+startButton.addEventListener("click",startGame);
 
 
 

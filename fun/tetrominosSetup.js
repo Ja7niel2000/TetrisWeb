@@ -1,3 +1,16 @@
+//array de tetrominos para poder seleccionarlos aleatoriamente.
+let tetrominos = [tetromino1,tetromino2,tetromino3,tetromino4,tetromino5,tetromino6,tetromino7];
+
+//Función para obtener un nuevo tetromino aleatorio y asignarlo a mainTetro.
+const restartMainTetromino =()=>{
+    if(!mainTetro){
+        console.log("cambio");
+        let random = Math.floor(Math.random()*7);
+        mainTetro = new Piece(tetrominos[random],random+1);
+    }   
+    
+}
+
 /**
  * Constructor
  * @param {*} tetromino 
@@ -16,19 +29,7 @@ function Piece (tetromino,color){
     this.y=-2;
 }
 
-//Los tetrominos se ponen en un array para poder seleccionarlos aleatoriamente.
-let tetrominos = [tetromino1,tetromino2,tetromino3,tetromino4,tetromino5,tetromino6,tetromino7];
-//Función para obtener un tetromino aleatorio y asignarlo a mainTetro
-const restartMainTetromino =()=>{
-    if(!mainTetro){
-        console.log("cambio");
-        let random = Math.floor(Math.random()*7)
-        mainTetro = new Piece(tetrominos[random],random+1);
-    }   
-    
-}
-
-//Método dibuja tetromino 
+//Método para dibujar tetromino 
 Piece.prototype.drawTetromino=function(){
     for(r=0;r<this.activeTetromino.length;r++){
         for(c=0;c<this.activeTetromino.length;c++){
@@ -40,7 +41,7 @@ Piece.prototype.drawTetromino=function(){
 
     }
 }
-
+//Método para desdibujar tetrominó
 Piece.prototype.unDraw=function(){
     for(r=0;r<this.activeTetromino.length;r++){
         for(c=0;c<this.activeTetromino.length;c++){
@@ -54,6 +55,7 @@ Piece.prototype.unDraw=function(){
 
 }
 
+//Método para mover el tetromino hasta el abajo.
 Piece.prototype.moveBottom=function(y){
     if(mainTetro!=null){
         this.moveDown();
@@ -61,6 +63,7 @@ Piece.prototype.moveBottom=function(y){
     }
 }
 
+//Método para rotar a la derecha el tetromino activo.
 Piece.prototype.rotateRight=function(){
     if(this.canMove(0,0,this.tetromino[(this.tetrominoR +1)%this.tetromino.length])){
         this.unDraw();
@@ -70,8 +73,8 @@ Piece.prototype.rotateRight=function(){
     }
 }
 
+//Método para rotar a la izquierda el tetromino activo. 
 Piece.prototype.rotateLeft=function(){
-
     if(this.canMove(0,0,this.tetromino[(this.tetrominoR +(this.tetromino.length-1))%this.tetromino.length])){
         console.log((this.tetrominoR -1)%this.tetromino.length);
         this.unDraw();
@@ -82,6 +85,7 @@ Piece.prototype.rotateLeft=function(){
 
 }
 
+//Método para bajar una fila al tetromino activo
 Piece.prototype.moveDown=function(){
     if(this.canMove(0,1,this.activeTetromino)){
         this.unDraw();
@@ -116,6 +120,7 @@ Piece.prototype.moveDown=function(){
         }
         setScore(rowsDeleted);
         mainTetro=null;
+
 
     }
 }
@@ -190,32 +195,21 @@ let rotateRightButton=document.getElementById("rotateRight");
 let rotateLeftButton=document.getElementById("rotateLeft");
 let bottomButton=document.getElementById("bottom");
 
-
-
 const setControls = ()=>{
 
-    downButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveDown()});
-    rigthButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveRigth()});
-    leftButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveLeft()});
-    rotateRightButton.addEventListener("click",function(e){e.preventDefault();mainTetro.rotateRight()});
-    rotateLeftButton.addEventListener("click",function(e){e.preventDefault();mainTetro.rotateLeft()});
+    downButton.addEventListener("click",function(e){ if( interval!=null && mainTetro !=null){e.preventDefault();mainTetro.moveDown()}});
 
-    bottomButton.addEventListener("click",function(e){e.preventDefault();mainTetro.moveBottom()});
+    rigthButton.addEventListener("click",function(e){ if(interval!=null && mainTetro !=null){e.preventDefault();mainTetro.moveRigth()}});
 
+    leftButton.addEventListener("click",function(e){if(interval!=null && mainTetro !=null){e.preventDefault();mainTetro.moveLeft()}});
 
-}
+    rotateRightButton.addEventListener("click",function(e){if(interval!=null && mainTetro !=null){e.preventDefault();mainTetro.rotateRight()}});
+    rotateLeftButton.addEventListener("click",function(e){if(interval!=null && mainTetro !=null){e.preventDefault();mainTetro.rotateLeft()}});
 
-const removeControls =()=>{
-
-    downButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveDown()});
-    rigthButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveRigth()});
-    leftButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveLeft()});
-    rotateRightButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.rotateRight()});
-    rotateLeftButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.rotateLeft()});
-
-    bottomButton.removeEventListener("click",function(e){e.preventDefault();mainTetro.moveBottom()});
+    bottomButton.addEventListener("click",function(e){if(interval!=null && mainTetro !=null){e.preventDefault();mainTetro.moveBottom()}});
 
 }
+
 
 
 
